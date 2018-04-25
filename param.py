@@ -1,6 +1,8 @@
 from flask import Flask
 from flask import jsonify
 from flask import abort
+from flask import make_response
+
 
 app=Flask(__name__)
 
@@ -22,6 +24,10 @@ def getInfo(userId):
     return jsonify(result)
 
 
+#注意这个404方法必须要有一个参数，不传参数会报错。方法名可以随便起
+@app.errorhandler(404)
+def notFound(error):
+    return make_response(jsonify({"error":"not found"}),404)
 
 
 if __name__=="__main__":
