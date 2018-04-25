@@ -26,3 +26,7 @@ def getInfo(userId):
 
 if __name__=="__main__":
     app.run(debug=True)
+
+
+#使用方法浏览器输入http://127.0.0.1:5000/api/v1.0/getInfo/2，其中2是参数，获取userId==2的参数
+#或者用curl -i http://127.0.0.1:5000/api/v1.0/getInfo/2 查看返回结果
