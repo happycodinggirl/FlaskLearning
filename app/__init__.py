@@ -1,5 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
-from flask import Flask,jsonify,make_response,request
+from flask import Flask
 app=Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://qdm226570533:jiangfuqi@qdm226570533.my3w.com/qdm226570533_db'
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://qdm226570533:jiangfuqi@w.rdc.sae.sina.com.cn:3307/qdm226570533_db'
@@ -12,6 +12,7 @@ db = SQLAlchemy(app)
 
 if __name__=="__main__":
         print("init hahah ")
+        db.create_all()
 
 
 

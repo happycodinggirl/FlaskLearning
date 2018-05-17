@@ -1,5 +1,4 @@
-from flask import Flask,make_response
-from flask_sqlalchemy import SQLAlchemy
+from flask import make_response
 from flask import jsonify
 from flask import request
 from app import app,db
@@ -16,7 +15,7 @@ def hasInTable(name):
 
 @app.route("/regist/",methods=['POST'])
 def regist():
-
+    print("---form name is ",request.form.get("name"),"email is ",request.form.get("email"))
     if hasInTable(request.form.get("name")):
        return make_response(jsonify({"msg":"user has regist","code":101}))
     else:
@@ -29,6 +28,5 @@ def regist():
 
 if __name__=="__main__":
     print("regist main")
-    db.create_all()
     app.run(debug=True)
 
